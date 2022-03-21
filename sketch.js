@@ -4,11 +4,13 @@
 let wave;
 let waveType;
 let radio;
+
 //Waveform wave types
-let sineWave = 'sine;';
+let sineWave = 'sine';
 let triangleWave = 'triangle';
 let sawtoothWave = 'sawtooth';
 let squareWave = 'square';
+
 //initial parameters
 let button;
 let frequencySlider;
@@ -25,6 +27,7 @@ let releaseSlider;
 function setup() {
   createCanvas(1000, 200);
   background(0);
+
   //ADSR
   adsrEnvelope = new p5.Env();
   adsrEnvelope.setADSR(0.5, 0.25, 0.5, 0.1);
@@ -48,6 +51,7 @@ function setup() {
   frequencySlider = createSlider(50, 5000, 440, 0.1);
   frequencySlider.position(130, 10);
   frequencySlider.style('width', '300px');
+
   // frequencySlider.text('FREQ');
   volumeSlider = createSlider(0.0, 1.0, 0.3, 0.1);
   volumeSlider.position(630, 10);
@@ -84,6 +88,7 @@ function draw() {
   wave.freq(freqValue);
   adsrEnvelope.setADSR(attackValue, decayValue, sustainValue, releaseValue);
   masterVolume(volumeValue);
+
   //==========GRAPHICS==========
   //TODO replace this background with createCanvas
   background(120);
